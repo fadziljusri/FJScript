@@ -1,12 +1,26 @@
+body{
+    margin:20px;
+}
 #lang{
-    float: right;
-    width: 20%;
-    padding: 10px 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #f1f1f1;
-    font: 16px bold Tahoma;
+    height: 29px;
+    overflow: hidden;
+    width: 150px;
+    background: transparent;
 }
 #greeting{
     font:26px bold Tahoma;
 }
+.btn {
+    background: #ffffff;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0px;
+    -webkit-box-shadow: 0px 1px 3px #666666;
+    -moz-box-shadow: 0px 1px 3px #666666;
+    box-shadow: 0px 1px 3px #666666;
+    font-family: Tahoma;
+    color: #000000;
+    font-size: 16px;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+  }
