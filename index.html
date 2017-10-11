@@ -25,15 +25,43 @@
             <option value="fa">Persian</option>
         </select>
     </div>
-
+    <div id="links">
+        <a type="button" class="btn" href="https://github.com/fadziljusri/FJScript" target="_blank">GitHub</a>
+    </div>
     <center>
-        <h1>It's JavaScript</h1>
+
+        <h1>It's FJScript</h1>
+
+        <div class="container">
+            <form id="contact" onsubmit="return onSubmit()" hidden>
+                <h3>Cuba try test!</h3>
+                <fieldset>
+                    <input name="firstName" placeholder="First Name" type="text" required>
+                </fieldset>
+                <fieldset>
+                    <input name="lastName" placeholder="Last Name" type="text">
+                </fieldset>
+                <fieldset>
+                    <input name="email" placeholder="Email Address" type="email">
+                </fieldset>
+                <fieldset>
+                    <input name="tel" placeholder="Phone Number" type="tel">
+                </fieldset>
+                <fieldset>
+                    <input name="web" placeholder="Web Site" type="url">
+                </fieldset>
+                <fieldset>
+                    <textarea name="message" placeholder="Type your message here...."></textarea>
+                </fieldset>
+                <fieldset>
+                    <button name="submit" type="submit" id="contact-submit">Submit</button>
+                </fieldset>
+            </form>
+        </div>
+
         <p id="greeting"></p>
         <br>
-        <br>
-        <p id="links" hidden>
-            <a type="button" class="btn" href="https://github.com/fadziljusri/FJScript" target="_blank">GitHub</a>
-        </p>
+        <p id="info" align="left"></p>
     </center>
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/FJScript.js"></script>
