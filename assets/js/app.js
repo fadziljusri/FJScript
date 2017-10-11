@@ -5,6 +5,7 @@ $('#lang').change(function () {
     var init = FJ();
     init.setLang($('#lang').val()).setHTMLFormLang();
     $('#contact').show();
+    $('#infodiv').hide();
 });
 
 function onSubmit() {
@@ -14,7 +15,7 @@ function onSubmit() {
     var me = FJ(data[0].value, data[1].value, data[2].value, data[3].value, data[4].value, data[5].value);
     me.setLang($('#lang').val()).HTMLGreeting('#greeting').HTMLInfo('#info').log();
 
-    $('#info').show();    
+    $('#infodiv').show();    
 
     return false; //don't submit
 }

@@ -90,8 +90,8 @@
     // prototype holds methods (save memory space) 
     FJScript.prototype = {
         // 'this' refers to the calling object at execution time  
-        fullName: function () {
-            return this.firstName + " " + this.lastName;
+        formalFullName: function () {
+            return this.lastName + ", " + this.firstName;
         },
         validate: function () {
             if (supportedLangs.indexOf(this.lang) === -1) {
@@ -101,7 +101,7 @@
         // retrieve messages from obj by referring to properties using [] 
         greeting: function () {
             // let info = '';
-            return greetings[this.lang] + ' ' + this.firstName;
+            return greetings[this.lang] + ' ' + this.firstName[0].toUpperCase() + this.firstName.slice(1);
         },
         greet: function () {
             var msg = this.greeting();
@@ -111,15 +111,24 @@
             // make chainable 
             return this;
         },
-        information: function(){
+        information: function () {
             var self = this;
-            var info ='';
+            var info = '';
 
+            formalFullName = self.formalFullName()
+                .toLowerCase()
+                .split(' ')
+                .map(function (word) {
+                    return word[0].toUpperCase() + word.substr(1);
+                })
+                .join(' ');
+
+            info += "<h4><center>" + formalFullName + ' </center></h4>';
             info += formLangs[self.lang].email + ' :<br> ' + self.email + ' <br><br>';
             info += formLangs[self.lang].tel + ' :<br> ' + self.tel + ' <br><br>';
             info += formLangs[self.lang].web + ' :<br> ' + self.web + ' <br><br>';
-            info += formLangs[self.lang].msj + ' :<br> ' + self.message + ' <br><br>';            
-            
+            info += formLangs[self.lang].msj + ' :<br> ' + self.message + ' <br><br>';
+
             return info;
         },
         formLang: function () {
@@ -127,7 +136,7 @@
         },
         log: function () {
             if (console) {
-                console.log(logMsg[this.lang] + ': ' + this.fullName());
+                console.log(logMsg[this.lang] + ': ' + this.formalFullName());
             }
 
             return this;
@@ -146,7 +155,6 @@
                 throw "Missing jQuery selector";
             }
             var msg = this.greeting();
-            // console.log(msg);
             // inject msg in the chosen place in DOM (Document Object Model) 
             $(selector).html(msg);
 
@@ -158,7 +166,6 @@
             }
 
             var info = this.information();
-            console.log(info);
             $(selector).html(info);
 
             return this;
@@ -172,7 +179,8 @@
             $('input[name="tel"]').attr('placeholder', selFormLang.tel);
             $('input[name="web"]').attr('placeholder', selFormLang.web);
             $('textarea[name="message"]').attr('placeholder', selFormLang.msj);
-        }
+        },
+
 
     };
 
@@ -180,11 +188,11 @@
     FJScript.init = function (firstName, lastName, email, tel, web, message, lang) {
 
         var self = this;
-        self.firstName = firstName || '&lt;First Name';
-        self.lastName = lastName || '&lt;Last Name&gt;';
-        self.email = email || '&lt;Email&gt;';
-        self.tel = tel || '&lt;Tel&gt;';
-        self.web = web || '&lt;Web Site&gt;'
+        self.firstName = firstName || '&lt; firstname &gt;';
+        self.lastName = lastName || '&lt; lastname &gt;';
+        self.email = email || '&lt; email &gt;';
+        self.tel = tel || '&lt; tel &gt;';
+        self.web = web || '&lt; web site &gt;'
         self.message = message || '&lt;Your Message&gt;';
         self.lang = lang || 'en';
 

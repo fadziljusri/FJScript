@@ -1,2 +1,4 @@
 # FJScript
-My own framework created using jQuery from my JavaScript lessons
+A mini JavaScript library created using jQuery
+
+## [LINK](https://fadziljusri.github.io/FJScript/)
